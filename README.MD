@@ -2,7 +2,7 @@ usage:
 set up a scheduler to run `run.bat` hourly, preferably at least 5 minutes after the bot has posted. 
 you will need a twitter dev account with auth/consumer keys and a bearer token, put these in `.env` and use the key names as described in `.env template`
 
-the images will be dropped in `/img/`. then set your background to slideshow and point it to that folder. 
+the images will be dropped in `./img/`. then set your background to slideshow and point it to that folder. 
 
 you might not want to run this for years on end as hourly bots will post 24*365= ~9000 images yearly. 
 it'll also download at full resolution! 
