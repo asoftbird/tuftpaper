@@ -9,6 +9,7 @@ from pathlib import PosixPath, WindowsPath
 from dotenv import load_dotenv
 
 # config
+# TODO: pull this from exec arguments instead of json
 with open("config.json") as cfgfile:
     CFG = json.load(cfgfile)
 
