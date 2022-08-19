@@ -1,0 +1,6 @@
+# .env
+TWT_AUTH_ACCESSTOKEN=[token]
+TWT_AUTH_SECRET=[secret]
+TWT_CONSUMER_APIKEY=[apikey]
+TWT_CONSUMER_APISECRET=[apisecret]
+TWT_BEARER=[bearertoken]
