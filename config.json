@@ -1,0 +1,6 @@
+{
+    "account-name": "asoftbird",
+    "log-file":"log.txt",
+    "output-dir":"./img/",
+    "timezone-modifier":"2"
+}
