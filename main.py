@@ -1,4 +1,5 @@
 import os
+import re
 import sys
 import json
 import tweepy
@@ -72,20 +73,20 @@ tweet_info_json = tweet_object[0]._json
 if "4325.000" in tweet_info_json['text']:
     logging.info("Bot posted an error image, skipping")
 else:
-    tweet_time = tweet_info_json['created_at'][4:-14] # 'Aug 19 15:01'
-    tweet_time_date = tweet_time[:-6] # 'Aug 19'
-    tweet_time_h = tweet_time[7:-3] # '15'
-    tweet_time_min = tweet_time[10:] # '01'
-    tweet_time = f"{tweet_time_date} {int(tweet_time_h)+TZMOD}:{tweet_time_min}" # 'Aug 19 17:01'
+    # "created_at":"Fri Aug 19 12:01:31 +0000 2022",
+    tweet_datetime = re.search(r"\w{3}\s(\w{3})\s(\d{1,2})\s(\d{1,2})\:(\d{1,2}):.*", tweet_info_json['created_at'])
+    tweet_month = tweet_datetime.group(1)
+    tweet_day = tweet_datetime.group(2).zfill(2)
+    tweet_hour = tweet_datetime.group(3).zfill(2)
+    tweet_min = tweet_datetime.group(4)
 
-    tweet_time_date_safe = f"{tweet_time[:-9]}{tweet_time[4:-6]}" # 'Aug19'
-    tweet_time_safe = f"{tweet_time_date_safe}_{int(tweet_time_h)+TZMOD}{tweet_time_min}" # 'Aug19_1701'
+    tweet_parseddate = f"{tweet_day}-{tweet_month}_{tweet_hour}{tweet_min}" #19-Aug_1701
 
     tweet_media_url = tweet_info_json['extended_entities']['media'][0]['media_url']+":large"
 
-    logging.info(f"Retrieved tweet {target_url}, \n \t published at {tweet_time} with media url {tweet_media_url}")
+    logging.info(f"Retrieved tweet {target_url}, \n \t published at {tweet_parseddate} with media url {tweet_media_url}")
 
-    image_filename = f"{ACCOUNT_NAME}_{tweet_time_safe}.jpg"
+    image_filename = f"{tweet_parseddate}_{ACCOUNT_NAME}.jpg" #19-Aug-_1701_asoftbird.jpg
 
     dl_image = urllib.request.urlretrieve(tweet_media_url, filename=OUTPUT_DIR+image_filename)
     logging.info(f"Saved image as {image_filename} in {OUTPUT_DIR}.")
