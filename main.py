@@ -17,7 +17,6 @@ load_dotenv()
 LOGFILE=CFG["log-file"]
 ACCOUNT_NAME=CFG["account-name"]
 OUTPUT_DIR=CFG["output-dir"]
-TZMOD=int(CFG['timezone-modifier'])
 
 CONS_KEY=os.getenv('TWT_CONSUMER_APIKEY')
 CONS_SEC=os.getenv('TWT_CONSUMER_APISECRET')
