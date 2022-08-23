@@ -6,7 +6,7 @@ param(
 [Windows.UI.Notifications.ToastNotification, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null
 [Windows.Data.Xml.Dom.XmlDocument, Windows.Data.Xml.Dom.XmlDocument, ContentType = WindowsRuntime] | Out-Null
 
-$APP_ID = '110366bd-56e2-47ed-9bdf-3ce1fa408b6c'
+$APP_ID = 'Tuftpostbot5000'
 
 $template = @"
 <toast>
