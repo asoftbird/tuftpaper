@@ -1,6 +1,7 @@
 {
     "account-name": "asoftbird",
     "log-file":"log.txt",
+    "log-file-cleanup": "log-cleanup.txt",
     "output-dir":"./img/",
-    "timezone-modifier":"2"
+    "archive-dir":"./archive/"
 }
