@@ -1,6 +1,6 @@
 .env
 /venv/
 *.pyc
-log.txt
+log*.txt
 *.jpg
 tweetinfotemplate.json
