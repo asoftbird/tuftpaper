@@ -1,12 +1,13 @@
 param(
-    [String] $Title
+    [String] $Title,
+    [String] $APP_ID
 )
 
 [Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null
 [Windows.UI.Notifications.ToastNotification, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null
 [Windows.Data.Xml.Dom.XmlDocument, Windows.Data.Xml.Dom.XmlDocument, ContentType = WindowsRuntime] | Out-Null
 
-$APP_ID = 'Tuftpostbot5000'
+#$APP_ID = 'Tuftpostbot5000'
 
 $template = @"
 <toast>
