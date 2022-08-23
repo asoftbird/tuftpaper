@@ -1,12 +1,10 @@
 import os
 import re
-import sys
 import json
 import tweepy
 import urllib
 import logging
 
-from pathlib import PosixPath, WindowsPath
 from dotenv import load_dotenv
 
 # config
@@ -33,14 +31,6 @@ logging.basicConfig(filename=LOGFILE,
     format='%(asctime)s %(message)s',
     datefmt='[%a %d-%m-%y %H:%M:%S]'
     )
-
-# init
-base_posix_path = PosixPath
-
-if sys.platform.startswith("linux"):
-    pass
-elif sys.platform.startswith("win32"):
-    PosixPath = WindowsPath
 
 # references
 auth = tweepy.OAuthHandler(CONS_KEY, CONS_SEC)
